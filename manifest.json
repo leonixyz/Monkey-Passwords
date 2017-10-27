@@ -17,12 +17,14 @@
     "storage"
   ],
   "browser_action": {
-    "default_icon": {
-      "48": "key_light.svg"
-    },
     "default_title": "Yet Another Password Manager",
     "default_popup": "ui.html",
-    "browser_style": true
+    "browser_style": true,
+    "theme_icons": [{
+      "dark": "key_dark.svg",
+      "light": "key_light.svg",
+      "size": 32
+    }]
   },
   "options_ui": {
     "page": "settings.html"
