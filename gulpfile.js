@@ -22,3 +22,7 @@ gulp.task('browserify', function() {
 });
 
 gulp.task('default', ['build','browserify']);
+
+gulp.task('watch', ['default'], function() {
+	gulp.watch(['main.js'],['default']);
+});

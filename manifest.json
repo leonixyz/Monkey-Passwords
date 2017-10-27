@@ -14,7 +14,9 @@
   },
   "permissions": [
     "clipboardWrite",
-    "storage"
+    "storage",
+    "tabs",
+    "activeTab"
   ],
   "browser_action": {
     "default_title": "Yet Another Password Manager",

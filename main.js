@@ -64,6 +64,15 @@ document.addEventListener("DOMContentLoaded", function init() {
     window.passwordField = document.querySelector('#output');
     window.messageField = document.querySelector('#message');
 
+    // propose account identifier depending on current active tab uri
+    browser.tabs.query({currentWindow: true, active: true}).then(function setAccountId(tabs) {
+        let currentTab = tabs[0];
+        let a = document.createElement('a');
+        a.href = currentTab.url;
+        let identifier = a.hostname;
+        window.accountIdentifierField.value = identifier;
+    });
+
     // focus the master password field
     setTimeout(function(){ window.masterPasswordField.focus()}, 200);
 
