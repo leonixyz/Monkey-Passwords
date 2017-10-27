@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "author": "leonixyz",
+  "name": "Yet Another Password Manager",
+  "version": "1.0.0",
+  "description": "A simple password manager that generates strong, pseudo-random, base91 passwords.",
+  "applications": {
+     "gecko": {
+          "id": "yet_another_password_manager@mozilla.org"
+     }
+  },
+  "icons": {
+    "48": "key_dark.svg"
+  },
+  "permissions": [
+    "clipboardWrite",
+    "storage"
+  ],
+  "browser_action": {
+    "default_icon": {
+      "48": "key_light.svg"
+    },
+    "default_title": "Yet Another Password Manager",
+    "default_popup": "ui.html",
+    "browser_style": true
+  },
+  "options_ui": {
+    "page": "settings.html"
+  },
+  "commands":{
+    "_execute_browser_action": {
+      "suggested_key": {
+          "default": "Alt+P"
+      }
+    }
+  }
+}

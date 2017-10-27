@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Yet Another Password Manager - Settings</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="main.css">
+    </head>
+    <body>
+        <h1>Simple Password Manager</h1>
+        <hr>
+        <h2>Description</h2>
+        <p>
+            this tool bla bla bla
+        </p>
+        <hr>
+        <h2>Settings</h2>
+        <p>
+            The following settings <strong>should be kept secret</strong> because they determine the way how 
+            your passwords are pseudo-randomly generated. An attacker knowing your settings and able to predict
+            your account identifiers can get all your passwords.
+        </p>
+        <label for="showSettings">
+            <input type="checkbox" name="showSettings" id="showSettings"> Show settings
+        </label>
+        <div id="settings" class="hidden">
+            <div>
+                <label for="passwordsLength">Passwords length</label><br>
+                <input type="number" name="passwordsLength" id="passwordsLength" min="6" max="40" class="autosave">
+            </div>
+            <div>
+                <label for="cryptoSeed">Cryptographic seed</label><br>
+                <input type="text" name="cryptoSeed" id="cryptoSeed" class="autosave" value="">
+                <span id="cryptoSeedError" class="error"></span>
+            </div>
+            <div>
+                <span id="errorMessage" class="error"></span>
+            </div>
+        </div>
+    </body>
+    <script src="settings.js"></script>
+</html>

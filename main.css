@@ -1,0 +1,40 @@
+body {
+    font-family: Fira Sans, sans-serif;
+    background-color: #f9f9fa;
+    padding: 1.4em;
+    color: #0c0c0d;
+}
+
+input {
+    margin: 0 0 0.7em 0;
+    font-weight: lighter;
+}
+
+h1 {
+    font-size: 22px;
+    font-weight: lighter;
+}
+
+#message {
+    text-align: center;
+    color: #737373;
+}
+
+#output {
+    position: absolute;
+    top: -5px;
+    width: 1px;
+    height: 1px;
+    z-index: -1;
+    background: transparent;
+    color: transparent;
+    border: 0;
+}
+
+.error {
+    color: red;
+}
+
+.hidden {
+    display: none;
+}
