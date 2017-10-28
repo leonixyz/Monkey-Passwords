@@ -3,7 +3,7 @@
   "author": "leonixyz",
   "name": "Yet Another Password Manager",
   "version": "1.0.0",
-  "description": "A simple password manager that generates strong, pseudo-random, base91 passwords.",
+  "description": "A simple, cross-device, password manager. Works in parallel on your laptop, desktop and mobile phone.",
   "applications": {
      "gecko": {
           "id": "yet_another_password_manager@mozilla.org"

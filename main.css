@@ -38,3 +38,23 @@ h1 {
 .hidden {
     display: none;
 }
+
+.setting {
+    padding:1em;
+    background:white;
+    box-shadow: 5px 5px 3px #ddd;
+    margin-bottom: 1em;
+    border: 1px solid #ddd;
+}
+
+.setting label {
+    font-weight: bold;
+}
+
+.info {
+    padding:1em;
+    background: #f5ffb1;
+    box-shadow: 5px 5px 3px #ddd;
+    margin-bottom: 1em;
+    border: 1px solid #f5ffb1;
+}
