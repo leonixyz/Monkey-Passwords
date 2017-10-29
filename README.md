@@ -1,4 +1,4 @@
 Monkey Passwords
 ================
 
-A Password Manager Webextension. Currently under development.
+A password management webextension. Currently under development.
