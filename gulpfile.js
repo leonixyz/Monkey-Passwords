@@ -5,7 +5,7 @@ var zip = require('gulp-zip');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 
-var files = ['manifest.json', 'ui.html', 'bundle.js', 'main.css', 'key_light.svg', 'key_dark.svg', 'settings.html', 'settings.js'];
+var files = ['manifest.json', 'ui.html', 'bundle.js', 'main.css', 'monkey-light.svg', 'monkey-dark.svg', 'monkey-face-light.svg', 'monkey-face-dark.svg', 'settings.html', 'settings.js'];
 var xpiName = 'yapm.xpi';
 
 gulp.task('build', function () {

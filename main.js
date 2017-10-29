@@ -54,12 +54,32 @@ document.addEventListener("DOMContentLoaded", function main() {
     /* get settings from local storage */
     browser.storage.local.get("settings").then(
         (storage) => {
-            passwordLength = storage.settings.passwordsLength || 20;
-            username = storage.settings.username;
-            seed = storage.settings.cryptoSeed;
+            let message = '';
+            try {
+                if(storage.hasOwnProperty('settings')) {                
+                    passwordLength = storage.settings.passwordsLength || 20;
+                    username = storage.settings.username;
+                    seed = storage.settings.cryptoSeed;
+                    if(seed == undefined || seed == null || seed == "") {
+                        message = 'Your setting for the cryptographic seed is invalid.';
+                    }
+                }
+                else {
+                    message = 'This extension needs to be configured before using it.';
+                }
+            }
+            catch(ex) {
+                message = 'An unexpected error occurred: ' + ex.message;
+            }
+            finally {
+                if(message != '') {
+                    document.querySelector('#app').innerHTML = message +
+                        '<br>Take a look at the preferences at <code>about:addons</code>';
+                }
+            }
         },
         (error) => {
-            alert("YAMP was unable to get the config: " + error);
+            document.querySelector('#app').innerHTML = 'A fatal error occurred: ' + error;
         }
     );
 

@@ -3,21 +3,28 @@ document.addEventListener("DOMContentLoaded",
 	() => {
 		browser.storage.local.get("settings").then(
 		  	function setCurrentPreferences(storage) {
-				document.querySelector("#passwordsLength").value = storage.settings.passwordsLength || 20;
-				document.querySelector("#cryptoSeed").value = storage.settings.cryptoSeed;
-				document.querySelector("#username").value = storage.settings.username;
+                if(storage.hasOwnProperty('settings')) {        
+					document.querySelector("#passwordsLength").value = storage.settings.passwordsLength || 20;
+					document.querySelector("#cryptoSeed").value = storage.settings.cryptoSeed;
+					document.querySelector("#username").value = storage.settings.username;
+				}
 			},
 			function onError(error) {
-				document.querySelector("#errorMessage").innerText = error;
+				document.querySelector("#message").innerText = error;
+				document.querySelector("#message").className = 'error';
+				document.querySelectorAll("#settings input").forEach(
+					(element) => {
+						element.disabled = true;
+					}
+				);
 			}
 		);
 	}
 );
 
 // autosave settings
-document.querySelector(".autosave").addEventListener("change", 
+document.querySelector("#saveButton").addEventListener("click", 
 	(e) => {
-		console.log(document.querySelector("#cryptoSeed").value);
 		e.preventDefault();
 		let settings = {
 			passwordsLength: document.querySelector("#passwordsLength").value,
@@ -26,8 +33,20 @@ document.querySelector(".autosave").addEventListener("change",
 		};
 		browser.storage.local.set({
 			settings: settings
-		});
-		console.log();
+		}).then(
+			() => {
+				document.querySelector("#message").innerText = 'settings saved';
+				document.querySelector("#message").className = '';
+				setTimeout(
+					() => {
+						document.querySelector("#message").innerText = '';
+					}, 2000);
+			},
+			(error) => {
+				document.querySelector("#message").innerText = error;
+				document.querySelector("#message").className = 'error';
+			}
+		);
 	}
 );
 

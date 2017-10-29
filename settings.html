@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Yet Another Password Manager - Settings</title>
+        <title>Settings</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="main.css">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans:100,400,800" rel="stylesheet">
     </head>
     <body>
         <h1>Settings</h1>
@@ -12,7 +13,7 @@
             <strong>A proper configuration is the key to have this extension working securely!</strong>
         </p>
         <p>
-            Settings <strong>should be kept secret</strong> because they determine the way how passwords are
+            Settings should be kept secret because they determine the way how passwords are
             pseudo-randomly generated. An attacker knowing your settings and able to predict your account 
             identifiers can get all your passwords.
         </p>
@@ -22,17 +23,17 @@
         </p>
         <p>
             If this is the first time you use this extension take a few minutes to
-            <button id="showInfo">read this</button> to understand how to configure and use it.
+            <a id="showInfo">read this</a> to understand how to configure and use it.
         </p>
         <div id="doc" class="hidden">
             <div class="info">
                 <h2>Monkeys and bananas</h2>
+                <img src="monkey-dark.svg" style="width:100px; height:64px; float:left; margin:1em;">
                 <p>
                     This password manager works by generating <strong>pseudo-random</strong> strings of characters
                     as password suggestions, similarly to having a monkey typing random keys on your keyboard. 
                     The comparison with a monkey is to explain complex stuff in simple terms (I also love monkeys).
-                    You can read detailed and technical documentation <a href="https://github.com/leonixyz/YAPM">on 
-                    this page</a>.
+                    You can <a href="https://github.com/leonixyz/YAPM">read detailed and technical documentation</a>.
                 </p>
                 <p>
                     The difference between a real-world monkey and this extension, is that this extension is able to behave 
@@ -54,8 +55,8 @@
                     </ol>
 
                     and then we feed it again <strong>in front of other people</strong> with just a cookie, we can be pretty
-                    sure that <strong>it will be extremely hard</strong> for someone else than ourselves guessing the 
-                    complete monkey's lunch, and feed the monkey again, in the exact same way, to steal our password.
+                    sure that <strong>it will be extremely hard</strong> for someone else guessing the complete monkey's lunch,
+                    and feed the monkey again, in the exact same way, to steal our password.
                 </p>
                 <p>
                     Moreover, by feeding the monkey with just one corn seed more (or less) we will end up with a totally
@@ -80,11 +81,11 @@
                 <p>
                     On this page you have to configure the first, secret, most important part of the monkey's lunch 
                     (<strong>the cryptographic seed</strong>). You can use whatever value you like. Paranoids will 
-                    paste here a random string taken from <a href="https://www.random.org/strings/">random.org</a>.
+                    paste here <a href="https://www.random.org/strings/">a random string taken from random.org</a>.
                 </p>
                 <p>
                     Once all settings are done, you can copy the same configuration to other browsers, even to other
-                    devices, and have your passwords everywhere.
+                    devices, and have your passwords generated in the same way everywhere.
                 </p>
                 <p>
                     To have a password generator, and not a circus show with monkeys, the "public lunch" is in turn
@@ -93,7 +94,7 @@
                         <li>
                             <strong>an account identifier</strong>: a string identifying for what account/service you need
                             the password, which is the monkey's food that anyone can see by looking at your screen while you're
-                            using this extension
+                            using this extension; it's just a string, so you can edit it if you like
                         </li>
                         <li>
                             <strong>a master password</strong>: another string which cannot be read on the screen, but that
@@ -103,13 +104,13 @@
                         </li>
                     </ul>
                 </p>
-                <div style="text-align: center">
+                <div class="center">
                     <div style="background:white; padding:1em; display: inline-block;">
+                        <div style="width:25em; height:7em; position:absolute; z-index:10;"></div>
                         <input type="password" value="123456"> Master password<br>
-                        <input type="text" value="crazymonkey@twitter.com"> Account identifier
+                        <input type="text" value="monkey@twitter.com"> Account identifier
                     </div><br>
-                    An example of the user interface: it doesn't generate<br>
-                    anything, it's just to show how it looks like<br>
+                    <small>An example of the user interface</small><br>
                 </div>
                 <p>
                     Now that you know how important is to correctly configure this extension, go on and enjoy!
@@ -117,36 +118,35 @@
             </div>
         </div>
         <label for="showSettings">
-            <input type="checkbox" name="showSettings" id="showSettings"> Click here to toggle settings' visibility
+            <input type="checkbox" name="showSettings" id="showSettings"> Toggle settings
         </label>
         <div id="settings" class="hidden">
             <div class="setting">
                 <label for="passwordsLength">Passwords length</label><br>
-                <input type="number" name="passwordsLength" id="passwordsLength" min="6" max="40" class="autosave">
+                <input type="number" name="passwordsLength" id="passwordsLength" min="6" max="40">
                 <p>
-                    All your passwords will be generated this length in characters.
+                    All your passwords will be generated this length in characters
                 </p>
             </div>
             <div class="setting">
                 <label for="cryptoSeed">Cryptographic seed</label><br>
-                <input type="text" name="cryptoSeed" id="cryptoSeed" class="autosave" value="">
+                <input type="text" name="cryptoSeed" id="cryptoSeed" value="">
                 <p>
                     This is the initialization value for pseudo-randomness, you can use whatever string you like,
-                    for example a random string taken from <a href="https://www.random.org/strings/">random.org</a>
+                    for example <a href="https://www.random.org/strings/">a random string</a>
                 </p>
             </div>
             <div class="setting">
                 <label for="username">Username</label><br>
-                <input type="text" name="username" id="username" class="autosave" value="">
+                <input type="text" name="username" id="username" value="">
                 <p>
                     If you set this value to the username you commonly use to register on internet services, your
                     account identifiers will be prefilled using it as prefix in the form <code>username@hostname</code>
                 </p>
             </div>
-            <div>
-                <span id="errorMessage" class="error"></span>
-            </div>
+            <button type="button" id="saveButton" class="text-bigger">Save Settings</button>
         </div>
+        <span id="message"></span>
     </body>
     <script src="settings.js"></script>
 </html>
