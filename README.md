@@ -1,4 +1,4 @@
-Yet Another Password Manager
-============================
+Monkey Passwords
+================
 
 A Password Manager Webextension. Currently under development.
