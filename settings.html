@@ -23,99 +23,101 @@
         </p>
         <p>
             If this is the first time you use this extension take a few minutes to
-            <a id="showInfo">read this</a> to understand how to configure and use it.
+            <a id="showInfo1">read this</a> to understand how to configure and use it.
         </p>
-        <div id="doc" class="hidden">
-            <div class="info">
-                <h2>Monkeys and bananas</h2>
-                <img src="monkey-dark.svg" style="width:100px; height:64px; float:left; margin:1em;">
-                <p>
-                    This password manager works by generating <strong>pseudo-random</strong> strings of characters
-                    as password suggestions, similarly to having a monkey typing random keys on your keyboard. 
-                    The comparison with a monkey is to explain complex stuff in simple terms (I also love monkeys).
-                    You can <a href="https://github.com/leonixyz/YAPM">read detailed and technical documentation</a>.
-                </p>
-                <p>
-                    The difference between a real-world monkey and this extension, is that this extension is able to behave 
-                    deterministically, which means that our monkey always press the same sequence of keys
-                    <strong>provided that it has been previously fed with the same food</strong>.
-                </p>
-                <p>
-                    For this reason we will feed the monkey in two steps: the first time secretly, the second time
-                    (possibly but not necessarily) in front of other people. Having the monkey take the first part
-                    of the meal in secret, allows us to care less what it will eat in front of other people, because
-                    in the fist part of the meal we are establishing a <strong>secret</strong>.
-                </p>
-                <p>
-                    Therefore, if we <strong>secretly feed</strong> our monkey with
-                    <ol>
-                        <li>three quarter of a banana,</li>
-                        <li>two apples,</li>
-                        <li>twentysix corn seeds,</li>
-                    </ol>
+        <div id="info1" class="info hidden">
+            <h2>Monkeys and bananas</h2>
+            <img src="monkey-dark.svg" style="width:100px; height:64px; float:left; margin:1em;">
+            <p>
+                This password manager works by generating <strong>pseudo-random</strong> strings of characters
+                as password suggestions, similarly to having a monkey typing random keys on your keyboard. 
+                The comparison with a monkey is to explain complex stuff in simple terms (I also love monkeys).
+                You can <a href="https://github.com/leonixyz/YAPM">read detailed and technical documentation</a>.
+            </p>
+            <p>
+                The difference between a real-world monkey and this extension, is that this extension is able to behave 
+                deterministically, which means that our monkey always press the same sequence of keys
+                <strong>provided that it has been previously fed with the same food</strong>.
+            </p>
+            <p>
+                For this reason we will feed the monkey in two steps: the first time secretly, the second time
+                (possibly but not necessarily) in front of other people. Having the monkey take the first part
+                of the meal in secret, allows us to care less what it will eat in front of other people, because
+                in the fist part of the meal we are establishing a <strong>secret</strong>.
+            </p>
+            <p>
+                Therefore, if we <strong>secretly feed</strong> our monkey with
+                <ol>
+                    <li>three quarter of a banana,</li>
+                    <li>two apples,</li>
+                    <li>twentysix corn seeds,</li>
+                </ol>
 
-                    and then we feed it again <strong>in front of other people</strong> with just a cookie, we can be pretty
-                    sure that <strong>it will be extremely hard</strong> for someone else guessing the complete monkey's lunch,
-                    and feed the monkey again, in the exact same way, to steal our password.
-                </p>
-                <p>
-                    Moreover, by feeding the monkey with just one corn seed more (or less) we will end up with a totally
-                    different outcome. The result is strictly determined by the food the monkey gets, but each smallest
-                    difference in the food will determine a truly random difference in the outcome.
-                </p>
-                <p>
-                    This extension works as explained above, by providing you with:
-                    <ul>
-                        <li>the monkey (the password-generation algorythm behind this extension)</li>
-                        <li>a secret way to feed it (the configuration)</li>
-                        <li>a way to feed it in front of other people (the user interface)</li>
-                    </ul>
-                </p>
-                <p>
-                    Generated passwords will be automatically copied to your clipboard, you can paste them
-                    where needed.
-                </p>
+                and then we feed it again <strong>in front of other people</strong> with just a cookie, we can be pretty
+                sure that <strong>it will be extremely hard</strong> for someone else guessing the complete monkey's lunch,
+                and feed the monkey again, in the exact same way, to steal our password.
+            </p>
+            <p>
+                Moreover, by feeding the monkey with just one corn seed more (or less) we will end up with a totally
+                different outcome. The result is strictly determined by the food the monkey gets, but each smallest
+                difference in the food will determine a truly random difference in the outcome.
+            </p>
+            <p>
+                This extension works as explained above, by providing you with:
+                <ul>
+                    <li>the monkey (the password-generation algorythm behind this extension)</li>
+                    <li>a secret way to feed it (the configuration)</li>
+                    <li>a way to feed it in front of other people (the user interface)</li>
+                </ul>
+            </p>
+            <p>
+                Generated passwords will be automatically copied to your clipboard, you can paste them
+                where needed.
+            </p>
+            <p>
+                There is just <a id="showInfo2">one more thing</a> to know...
+            </p>
+        </div>
+        <div id="info2" class="info hidden">
+            <h2>Seeds and identifiers</h2>
+            <p>
+                On this page you have to configure the first, secret, most important part of the monkey's lunch 
+                (<strong>the cryptographic seed</strong>). You can use whatever value you like. Paranoids will 
+                paste here <a href="https://www.random.org/strings/">a random string taken from random.org</a>.
+            </p>
+            <p>
+                Once all settings are done, you can copy the same configuration to other browsers, even to other
+                devices, and have your passwords generated in the same way everywhere.
+            </p>
+            <p>
+                To have a password generator, and not a circus show with monkeys, the "public part of the lunch" is in turn
+                divided in two sub-parts:
+                <ul>
+                    <li>
+                        <strong>an account identifier</strong>: a string identifying for what account/service you need
+                        the password, which is the monkey's food that anyone can see by looking at your screen while you're
+                        using this extension; it's just a string, so you can edit it if the pre-generated value doesn't 
+                        fit your need
+                    </li>
+                    <li>
+                        <strong>a master password</strong>: another string which cannot be read on the screen, but that
+                        someone might be able to see, if you are not smart or fast enough, while you are typing it on 
+                        the keyboard: it's like having the monkey eat something hidden in your pocket, but in front of other 
+                        people
+                    </li>
+                </ul>
+            </p>
+            <div class="center">
+                <div style="background:white; padding:1em; display: inline-block;">
+                    <div style="width:25em; height:7em; position:absolute; z-index:10;"></div>
+                    <input type="password" value="123456"> Master password<br>
+                    <input type="text" value="monkey@twitter.com"> Account identifier
+                </div><br>
+                <small>An example of the user interface</small><br>
             </div>
-            <div class="info">
-                <h2>Seeds and identifiers</h2>
-                <p>
-                    On this page you have to configure the first, secret, most important part of the monkey's lunch 
-                    (<strong>the cryptographic seed</strong>). You can use whatever value you like. Paranoids will 
-                    paste here <a href="https://www.random.org/strings/">a random string taken from random.org</a>.
-                </p>
-                <p>
-                    Once all settings are done, you can copy the same configuration to other browsers, even to other
-                    devices, and have your passwords generated in the same way everywhere.
-                </p>
-                <p>
-                    To have a password generator, and not a circus show with monkeys, the "public lunch" is in turn
-                    divided in two parts:
-                    <ul>
-                        <li>
-                            <strong>an account identifier</strong>: a string identifying for what account/service you need
-                            the password, which is the monkey's food that anyone can see by looking at your screen while you're
-                            using this extension; it's just a string, so you can edit it if you like
-                        </li>
-                        <li>
-                            <strong>a master password</strong>: another string which cannot be read on the screen, but that
-                            someone might be able to see, if you are not smart or fast enough, while you are typing it on 
-                            the keyboard: it's like having the monkey eat something hidden in your pocket, but in front of other 
-                            people
-                        </li>
-                    </ul>
-                </p>
-                <div class="center">
-                    <div style="background:white; padding:1em; display: inline-block;">
-                        <div style="width:25em; height:7em; position:absolute; z-index:10;"></div>
-                        <input type="password" value="123456"> Master password<br>
-                        <input type="text" value="monkey@twitter.com"> Account identifier
-                    </div><br>
-                    <small>An example of the user interface</small><br>
-                </div>
-                <p>
-                    Now that you know how important is to correctly configure this extension, go on and enjoy!
-                </p>
-            </div>
+            <p>
+                Now that you know how important it is to correctly configure this extension, go on and enjoy!
+            </p>
         </div>
         <label for="showSettings">
             <input type="checkbox" name="showSettings" id="showSettings"> Toggle settings

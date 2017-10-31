@@ -50,14 +50,25 @@ document.querySelector("#saveButton").addEventListener("click",
 	}
 );
 
-// show/hide info
-document.querySelector("#showInfo").addEventListener("click",
+// show/hide info 1
+document.querySelector("#showInfo1").addEventListener("click",
 	(e) => {
 		e.preventDefault();
-		document.querySelector("#doc").className =
-			document.querySelector("#doc").className == "" ?
-			"hidden" :
-			"";
+		document.querySelector("#info1").className =
+			document.querySelector("#info1").className == "info" ?
+			"info hidden" :
+			"info";
+	}
+);
+
+// show/hide info 2
+document.querySelector("#showInfo2").addEventListener("click",
+	(e) => {
+		e.preventDefault();
+		document.querySelector("#info2").className =
+			document.querySelector("#info2").className == "info" ?
+			"info hidden" :
+			"info";
 	}
 );
 
