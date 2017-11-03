@@ -5,8 +5,19 @@ var zip = require('gulp-zip');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 
-var files = ['manifest.json', 'ui.html', 'bundle.js', 'main.css', 'monkey-light.svg', 'monkey-dark.svg', 'monkey-face-light.svg', 'monkey-face-dark.svg', 'settings.html', 'settings.js'];
-var xpiName = 'yapm.xpi';
+var files = [
+	'manifest.json', 
+	'bundle.js', 
+	'settings.js',
+	'ui.html', 
+	'settings.html', 
+	'main.css', 
+	'monkey-light.svg', 
+	'monkey-dark.svg', 
+	'monkey-face-light.svg', 
+	'monkey-face-dark.svg'
+];
+var xpiName = 'monkey-passwords.xpi';
 
 gulp.task('build', function () {
   gulp.src(files)
